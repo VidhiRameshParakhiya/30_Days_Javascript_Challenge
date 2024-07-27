@@ -1,0 +1,180 @@
+<!-- VIDHI RAMESH PARAKHIYA -->
+<!-- DOM MANIPULATION ----->
+
+<!-- -----------------ACTIVITY 1 Selecting and manipulating elements -->
+<!-- select an HTML element by its ID and change its text content -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation</title>
+
+</head>
+
+<body>
+    <p id="myparagraph">this is original</p>
+   <button onclick="changetext()">change text</button>
+   
+
+  <script>
+    function changetext()
+    {
+        var element=document.getElementsByClassName('myparagraph');
+        element.textContent='This in new text file DOM manipulation with id';
+        
+    }
+
+      </script>
+</body>
+</html>
+
+
+<!--========================================================================================================-->
+<!-- Select HTML element by its class and change its background color -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .class2{
+            background-color: aliceblue;
+        }
+        .highlight{
+            background-color: blue;
+        }
+        #mouseeffect{
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="task2">
+this is bg color change text
+    </div>
+    <button onclick="bg()">change bg</button><br>
+   
+    <!-- create a new div with some text content and append it to the  -->
+     <p>Task 2 Append div</p>
+    <button onclick="appendiv()">Append div</button> 
+
+     <!-- create a new li element and add it to existing ul list -->
+    <ul id="mylist">
+        <li id="item1">item1</li>
+        <li id="item2">item2</li>
+        <li id="item3">item3</li>
+        <li id="item4">item4</li>
+
+    </ul><br>
+    <button onclick="additems()">AddItems</button><br>
+
+     <!--------------------- Activity 3 Removing elements -->
+     <!-- select HTML element and remove it from DOM -->
+    <button onclick="remove()">REMOVE one item</button><br>
+
+
+     <!-- Remove last child of specific HTML element -->
+      <button onclick="removelast()">Remove last element child</button><br>
+
+      <!-- ---------------------------Activity 4 select HTML element and change one of its attributes  -->
+       <img  id= "myimage" src="img1.jpg" alt="image1"><br>
+        <button onclick="imagechange()">Change image</button>
+
+         <!-- add and remove CSS class to / from an HTML element -->
+        <p id="myparagraphs">this is add and remove apragrapg sample</p><br>
+        <button onclick="addHighlight()">ADD</button><br>
+        <button onclick="removeHighlight()">Remove</button><br>
+
+    <!----------------------- Activity 5 add click event listener to button that changes text content of paragraph -->
+
+        <p id="mytxt">This is the text</p>
+        <button id="mybtn">change text</button><br>
+
+     <!-- Add mouseover event listener to an elemeny that changes its border color -->
+      <div id="mouseeffect">This is mouseover effect click here</div><br>
+
+  <script>
+        function bg(){
+            let elements=document.getElementsByClassName('task2')
+            for(let element of elements){
+                element.style.background='yellow';
+            }
+        }
+    //  create a new div with some text content and append it to the 
+
+        function appendiv(){
+            let newdiv=document.createElement('div')
+            newdiv.textContent='this is new div content'
+            document.body.appendChild(newdiv)
+        }
+
+        // create a new li element and add it to existing ul list
+        function additems(){
+            let newitem=document.createElement("li");
+            newitem.textContent="new li added"
+
+            let update=document.getElementById('mylist')
+            update.appendChild(newitem);
+        }
+
+
+// -------------------------------Activity 3 Removing elements
+// select HTML element and remove it from DOM
+            function remove(){
+                let itemremove=document.getElementById("item4");
+                itemremove.remove();
+            }
+// Remove last child of specific HTML element
+
+        function removelast(){
+            let last=document.getElementById('mylist')
+            if(last.lastElementChild){
+                last.lastElementChild.remove();
+            }
+        }
+
+ // ---------------------Activity 4 modify attributes and classes
+        // select HTML element and change one of its attributes 
+
+        function imagechange(){
+            let img=document.getElementById('myimage');
+            img.setAttribute("src","img2.jpg")
+        }
+
+                // add and remove CSS class to / from an HTML element
+
+             function addHighlight(){
+                let para=document.getElementById("myparagraphs")
+                para.classList.add("highlight")
+                }
+             function removeHighlight(){
+                let para=document.getElementById("myparagraphs")
+                para.classList.remove("highlight")
+               
+                }
+        // ---------------------Activity 5 Event handling
+        // add click event listener to button that changes text content of paragraph
+       
+       let button=document.getElementById("mybtn");
+       button.addEventListener("click",function(){
+        let para=document.getElementById("mytxt");
+        para.textContent="this is new context"
+       })
+       // add mouseover event listener to an elemeny that changes its border color
+        
+            let mouse_element=document.getElementById('mouseeffect')
+            mouse_element.addEventListener('mouseover',function(){
+                mouse_element.style.borderColor='red';
+            })
+        
+</script>
+</body>
+</html>
+
+    
+
+
+
