@@ -1,0 +1,129 @@
+<!-- Vidhi Ramesh Parakhiya -->
+ <!-- Event Handling -->
+  <!-- Activity1 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #colorbox{
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!-----------Activity 1 Add click event listener t button that changes text content of paragraph -->
+
+    <p id="btnchng">This is the text</p>
+    <button id="changetxt">Click to text change</button>
+
+    <!--  Add double click event listener to image that toggle its visbility -->
+    <img id="toggleimg" src="img1.jpg" alt="image1">
+    
+   
+    <!-- Add mouseover and mouseout event listener to element that resets background color -->
+    <div id="colorbox"></div>
+    <input type="text" placeholder="type something..." id="myInput">
+    <input type="text" placeholder="currentvalue"id="myInput2">
+
+    <form id="myForm">
+        <label for="name">name</label>
+        <input type="text" id="name">
+        <label for="age">Age</label>
+        <input type="text"id=age>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Add change event listner to select dropdown that display selected value in paragraph -->
+    <label for="myselect">choose option</label>   
+    <select id="myselect" id="">
+            <option value="option1">option1</option>
+            <option value="option2">option2</option>
+            <option value="option3">option3</option>
+            <option value="option4">option4</option>
+        </select>
+
+        <p id="selectedValue">Selected value</p>
+
+        <!-- Activity 5 add click event listener to list that logs the text content f clicked list using event delegation -->
+        <ul id="mylist">
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+            <li>list4</li>
+
+        </ul>
+<script>
+// --------------Activity 1 Add click event listener  button that changes text content of paragraph -->
+    document.getElementById('changetxt').addEventListener('click',function(){
+    document.getElementById('btnchng').textContent='this text has been changed';
+})
+
+//  Add double click event listener to image that toggle its visbility
+    document.getElementById('toggleimg').addEventListener('dblclick', function(){
+    let img=document.getElementById('toggleimg');
+    img.style.display=img.style.display === 'none'?'block':'none';
+})
+// Activity 2 Mouse events
+// Add mouseover and mouseout eventlistener to element change background color
+   let box=document.getElementById('colorbox')
+    box.addEventListener('mouseover',function(){
+        box.style.backgroundColor='red'
+    })
+    box.addEventListener('mouseout',function(){
+        box.style.backgroundColor='pink'
+    })
+// Add keydown eventlistener to input field that logs the key pressed to console
+let inputfield=document.getElementById('myInput')
+inputfield.addEventListener('keydown',(event)=>{
+    console.log(`key pressed: ${event.key}`)
+})
+// add keyup event listener to an input field that display the current value in paragraph
+let input=document.getElementById('myInput2')
+input.addEventListener('keyup',(event)=>{
+    console.log(`key pressed: ${event.key}`);
+})
+
+//----------------- Activity 4 Form Event
+// Add submit event listener to form that prevent default submission and logs the form data to console
+const form=document.getElementById('myForm');
+form.addEventListener('submit',(event)=>{
+event.preventDefault();
+
+const formData= new FormData(form);
+for (const [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+})
+
+
+// Add change event listner to select dropdown that display selected value in paragraph
+let selectdrop=document.getElementById('myselect')
+let display=document.getElementById('selectedValue')
+
+selectdrop.addEventListener('change',(event)=>{
+    let selectedvalue=event.target.value;
+    console.log(selectedvalue)
+    display.textContent=`selected value:${selectedvalue}`
+})
+
+// Actitvity 5 Event Delegation
+// add click event listener to list that logs the text content f clicked list using event delegation
+document.getElementById('mylist').addEventListener('click',(event)=>{
+    if(event.target && event.target.nodeName==='LI'){
+        console.log(event.target.textContent)
+    }
+})
+
+
+</script>
+</body>
+</html>
+
+
+
