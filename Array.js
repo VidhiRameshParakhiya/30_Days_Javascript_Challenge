@@ -36,7 +36,7 @@ console.log("unshift element="+unshifts)
 // Use map method to create new array where each array is doubled and log new array
 let myarray=[1,2,3,4]
 let doublearray=myarray.map(function(element){
-    return element*2;
+   return element*2;
 })
 console.log("myaaray="+doublearray)
 
@@ -49,7 +49,7 @@ console.log("even numbers after filltered="+results)
 
 // Use the reduce method to calculate the sum of new number in array and log result
 let sum=[4,3,2,1]
-let summres=sum.reduce(function(accumulator,currentvalue){
+let summres=sum.reduce(function(accumulator,currentvalue){['']
     return accumulator+currentvalue;
 })
 console.log("Reduce="+summres)
@@ -58,7 +58,7 @@ console.log("Reduce="+summres)
 // Use for loop to iterate over array and log each element
 let num1=[1,2,2,6,9];
 for(i=0;i<num1.length;i++){
-    console.log(num1[i])
+    console.log("for loop iterator="+num1[i])
 }
 
 // Use for each to iterate over array and log each element
@@ -85,4 +85,4 @@ let matrixs=[
 let row=1;
 let col=2;
 let matrrixres=matrixs[row][col];
-console.log(matrrixres)
+console.log(+matrrixres)
